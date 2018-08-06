@@ -22,6 +22,6 @@ import './filters'
 //全局组件
 
 import './ui-components'
-
+import '../components/commons/component'
 
 Vue.config.productionTip = false

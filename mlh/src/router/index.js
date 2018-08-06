@@ -5,12 +5,12 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import Home from '../components/pages/Home/Home.vue'
-// import Concat from '../components/pages/Concat/Concat.vue'
 // import Mine from '../components/pages/Mine/Mine.vue'
 import NotFound from '../components/pages/NotFound/NotFound.vue'
 // import LoginRegister from '../components/pages/LoginRegister/LoginRegister.vue'
 // import Login from '../components/pages/Login/Login.vue'
-import Detail from '../components/pages/Detail/Detail.vue'
+import Detail from '../components/pages/GoodsDetail/Detail.vue'
+import List from '../components/pages/GoodsList/List.vue'
 // import Register from '../components/pages/Register/Register.vue'
 
 
@@ -35,6 +35,11 @@ let routes = [
         path: '/detail',// 配置detail需要接收一个id参数
         name : 'detail',
         component: Detail
+    },
+    {
+        path: '/list',// 配置list需要接收一个id参数
+        name : 'list',
+        component: List
     },
     {
         path: '/not-found',

@@ -1,4 +1,4 @@
-// import Vue from 'vue'
-// import AppNav from './Nav.vue'
+import Vue from 'vue'
+import GoTop from './Gotop.vue'
 
-// Vue.component('app-nav', AppNav)
+Vue.component('GoTop', GoTop)

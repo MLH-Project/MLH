@@ -2,6 +2,7 @@
   <div id="app-home" class="page">
     <router-link to='/'>HOME</router-link>
     <router-link :to="{name: 'detail'}">DETAIL</router-link>
+    <router-link :to="{name: 'list'}">LIST</router-link>
   </div>
 </template>
 
