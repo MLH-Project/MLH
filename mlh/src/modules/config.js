@@ -22,6 +22,7 @@ import './filters'
 //全局组件
 
 import './ui-components'
+import '../components/pages/Home/Special/SpecialBox' 
 
 
 Vue.config.productionTip = false

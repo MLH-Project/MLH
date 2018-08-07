@@ -1,16 +1,35 @@
 <template>
   <div id="app-home" class="page">
-    <router-link to='/'>HOME</router-link>
-    <router-link :to="{name: 'detail'}">DETAIL</router-link>
+    <AppHomeNavList></AppHomeNavList>
+    <AppHomeBanner></AppHomeBanner>
+    <AppHomeAdvertisement></AppHomeAdvertisement>
+    <AppHomeListGoods></AppHomeListGoods>
+    <HomeNewToday></HomeNewToday>
+    <AppHomeBottom></AppHomeBottom>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'AppHome'
-}
+    import AppHomeNavList from './Special/SpecialBox'
+    import AppHomeBanner from './HomeBanner'
+    import AppHomeAdvertisement from './HomeAdvertisement'
+    import AppHomeListGoods from './HomeListGoods'
+    import HomeNewToday from './HomeNewToday'
+    export default {
+        name: 'AppHome',
+        components: {
+            AppHomeBanner,
+            AppHomeAdvertisement,
+            AppHomeListGoods,
+            HomeNewToday
+        }
+    }
 </script>
-// lang=scss 表示写的是scss代码
-<style scoped lang = "scss">
 
+<style lang="scss" scoped>
+	#app-home {
+		overflow: hidden;
+		background: #ffff;
+		color:#000000;
+	}
 </style>
