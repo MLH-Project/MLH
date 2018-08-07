@@ -9,7 +9,7 @@
           <router-link to = "/">
             <span >购物袋</span>
           </router-link> 
-          <router-link to = "/">
+          <router-link :to = "{name: 'mine'}">
             <span >个人中心</span>
           </router-link>
         </div>
