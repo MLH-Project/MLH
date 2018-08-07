@@ -5,7 +5,10 @@
       <div>
         <span>{{listInfos.eventName}}</span>
       </div>
-      <span>· · ·</span>
+      <span class="show-menu" @click="showMenu">· · ·</span>
+      <div v-if="status">
+        <ShowMenu></ShowMenu>
+      </div>
     </header>
     <nav>
       <span>人气</span>
@@ -59,12 +62,14 @@
 <script>
 import Vue from 'vue'
 import GoTop from '../../commons/component' 
+import ShowMenu from '../../commons/component' 
 
 export default {
   name: 'app-list',
   data () {
     return {
-      listInfos: {}
+      listInfos: {},
+      status: false
     }
   },
   methods: {
@@ -75,6 +80,9 @@ export default {
           this.listInfos = res.data
           console.log(JSON.parse(JSON.stringify(this.listInfos)))
         })
+    },
+    showMenu () {
+      this.status = !this.status
     }
   },
   created() {
@@ -88,6 +96,11 @@ export default {
 .list {
   header {
     display: flex;
+    .show-menu {
+      display: block;
+      position: relative;
+      text-align: right;
+    }
     span {
       flex: 3;
       padding-top: 0.1rem;

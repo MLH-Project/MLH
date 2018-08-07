@@ -6,7 +6,10 @@
         <span>{{infos.brand.toUpperCase()}}</span>
         <span>￥{{infos.price}}</span>
       </div>
-      <span>· · ·</span>
+      <span class="show-menu" @click="showMenu">· · ·</span>
+      <div v-if="status">
+        <ShowMenu></ShowMenu>
+      </div>
     </header>
     <div ref = "el" class="swiper-container" >
       <div class="swiper-wrapper">
@@ -37,11 +40,11 @@
       <span>{{infos.deliver_date}}</span>
     </div>
     <div class="other-info">
-      <div class="countdown" v-if = "infos.itemPriceDto">
+      <div class="countdown" v-if = "infos.eventEndDate">
         <span class="c-title">闪购</span>
         <div class="c-txt">
           <strong>距离结束</strong>
-          <Countdown @time-end="message = '倒计时结束'" :endTime='infos.eventEndDate' :nowTime='infos.eventStartDate'></Countdown>
+          <Countdown @time-end="message = '倒计时结束'" :endTime='endTime'></Countdown>
         </div>
       </div>
       <div 
@@ -94,7 +97,6 @@
           </div>
         </div>
       </div>
-      <!-- <div v-html="infos.sizeMeasure.howMeasue"></div> -->
     </div>
     <div class="description" v-if = "infos.description">
       <h3 class="h3">商品详情</h3>
@@ -139,7 +141,9 @@ export default {
     return {
       banners: [],
       infos: {},
-      message: ''
+      status: false,
+      message: '',
+      endTime: '2018-08-08 00:00:00'
     }
   },
   components: {
@@ -170,6 +174,9 @@ export default {
             });
           });
         });
+    },
+    showMenu () {
+      this.status = !this.status
     }
   },
   created() {
@@ -197,6 +204,11 @@ export default {
   }
   header {
     display: flex;
+    .show-menu {
+      display: block;
+      position: relative;
+      text-align: right;
+    }
     span {
       flex: 3;
       padding-top: 10px;

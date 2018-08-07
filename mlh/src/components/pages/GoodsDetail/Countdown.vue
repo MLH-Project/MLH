@@ -21,16 +21,13 @@ export default {
   props: {
     endTime: {
       type: String
-    },
-    nowTime: {
-      type: String
     }
   },
   methods: {
     timeDown() {
-      const endTime = this.endTime;
-      const nowTime = this.nowTime;
-      let leftTime = parseInt((endTime - nowTime) / 1000);
+      const endTime = new Date(this.endTime);
+      const nowTime = new Date();
+      let leftTime = parseInt((endTime.getTime() - nowTime.getTime()) / 1000);
       let d = this.formate(parseInt(leftTime / (24 * 60 * 60)));
       let h = this.formate(parseInt((leftTime / (60 * 60)) % 24));
       let m = this.formate(parseInt((leftTime / 60) % 60));
