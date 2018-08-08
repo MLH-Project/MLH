@@ -43,8 +43,8 @@
       <div class="countdown" v-if = "infos.eventEndDate">
         <span class="c-title">闪购</span>
         <div class="c-txt">
-          <strong>距离结束</strong>
-          <Countdown @time-end="message = '倒计时结束'" :endTime='endTime'></Countdown>
+          <strong>{{message}}</strong>
+          <Countdown @time-end="message = '已结束'" :endTime='endTime'></Countdown>
         </div>
       </div>
       <div 
@@ -89,7 +89,7 @@
           <div class="container clear">
             <ul class="size-item" v-for = "(items, i) in infos.sizeMeasure.sizeTable" :key = "i">
               <li 
-                v-if = "Number(items.product_size) || items.product_size == 'UNI'" 
+                v-if = "Number(items.product_size < 3) || items.product_size == 'UNI'" 
                 v-for = "(item, i) in items" 
                 :key = "i"
               >{{item}}</li>
@@ -142,7 +142,7 @@ export default {
       banners: [],
       infos: {},
       status: false,
-      message: '',
+      message: '距离结束',
       endTime: '2018-08-08 00:00:00'
     }
   },

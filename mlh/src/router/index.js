@@ -5,13 +5,10 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import Home from '../components/pages/Home/Home.vue'
-// import Mine from '../components/pages/Mine/Mine.vue'
 import NotFound from '../components/pages/NotFound/NotFound.vue'
-// import LoginRegister from '../components/pages/LoginRegister/LoginRegister.vue'
-// import Login from '../components/pages/Login/Login.vue'
 import Detail from '../components/pages/GoodsDetail/Detail.vue'
 import List from '../components/pages/GoodsList/List.vue'
-// import Register from '../components/pages/Register/Register.vue'
+
 
 
 //路由表, 设置路由切换的规则
@@ -21,16 +18,6 @@ let routes = [
         name : 'home',// 给这个路由起个名字
         component: Home// 渲染的组件为Home
     },
-    // {
-    //     path: '/concat',
-    //     name : 'concat',
-    //     component: Concat
-    // },
-    // {
-    //     path: '/mine',
-    //     name : 'mine',
-    //     component: Mine
-    // },
     {
         path: '/detail',// 配置detail需要接收一个id参数
         name : 'detail',
@@ -46,29 +33,6 @@ let routes = [
         name : 'not-found',
         component: NotFound
     }, 
-    // {
-    //     path: '/login-register',
-    //     name : 'login-register',
-    //     component: LoginRegister,
-    //     children: [
-    //         {
-    //             path: '',
-    //             // component: Login
-    //             redirect: { name: 'login' }
-    //         },
-    //         {
-    //             path: 'login',
-    //             name : 'login',
-    //             component: Login
-    //         },
-    //         {
-    //             path: 'register',
-    //             name : 'register',
-    //             component: Register
-    //         }
-        // ]
-    // },
-
     {
         path: '**',
         redirect: {name: 'not-found'}
