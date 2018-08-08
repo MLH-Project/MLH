@@ -40,6 +40,7 @@ Vue.prototype.$cookies.clear = function () {
 import md5 from 'js-md5'
 
 Vue.prototype.md5 = md5
+import '../components/pages/Home/Special/SpecialBox' 
 
 
 Vue.config.productionTip = false

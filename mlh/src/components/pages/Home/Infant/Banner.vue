@@ -1,12 +1,12 @@
 <template>
-	<div class='app-home-banner'>
+	<div class='overseas-banner'>
 		<div ref="el" class="swiper-container">
 			<div class="swiper-wrapper">
 				<div v-for="(banner, i) in banners" v-if="banner.imgUrlNew !== ''" :key="i" class="swiper-slide">
 					<img :src="banner.imgUrlNew" class="loading-img">
 				</div>
 			</div>
-			<div class="swiper-pagination dian"></div>
+			<div class="swiper-pagination"></div>
 		</div>
 	</div>
 </template>
@@ -15,7 +15,7 @@
 	import Vue from "vue";
 	import Swiper from "swiper";
 	export default {
-		name: "app-home-banner",
+		name: "overseas-banner",
 		data() {
 			return {
 				banners: []
@@ -24,10 +24,8 @@
 		methods: {
 			getInfos() {
 				this.$http
-					.get(
-						"/mlh/appapi/home/marketingBannerNewZone/v3?timestamp=1533211244010&summary=0709bfd68850ba6d08f7cd309992bc49"
-					)
-					.then(res => {
+					.get("/mlh/appapi/home/marketingBannerNewZone/v3?silo_code=5&timestamp=1533633269741&summary=ec9024898fc9af841c2a774408e3847a").then(res => {
+						console.log(res)
 						this.banners = res.data.banners;
 						Vue.nextTick(() => {
 							new Swiper(this.$refs.el, {
@@ -52,7 +50,7 @@
 	};
 </script>
 <style lang="scss">
-	.app-home-banner {
+	.overseas-banner {
 		width: 100%;
 		height: 2rem;
 		margin-top: 0.25rem;
@@ -62,13 +60,13 @@
 			.swiper-wrapper {
 				width: 100%;
 				height: 1.875rem;
-			}
-			.swiper-slide {
-				width: 100%;
-				height: 1.875rem;
-				img {
+				.swiper-slide {
 					width: 100%;
-					height: 100%;
+					height: 1.875rem;
+					img {
+						width: 100%;
+						height: 100%;
+					}
 				}
 			}
 			.swiper-pagination {

@@ -7,11 +7,17 @@ Vue.use(VueRouter)
 import Home from '../components/pages/Home/Home.vue'
 import NotFound from '../components/pages/NotFound/NotFound.vue'
 import Mine from '../components/pages/Mine/Mine.vue'
-import NotFound from '../components/pages/NotFound/NotFound.vue'
 import Login from '../components/pages/Login/Login.vue'
 import Detail from '../components/pages/GoodsDetail/Detail.vue'
 import List from '../components/pages/GoodsList/List.vue'
 import store from '../store'
+import overseas from '../components/pages/Home/overseas/overseas.vue'
+import BeautyMakeUp from '../components/pages/Home/Beauty-make-up/Beauty-make-up.vue'
+import HomeFurnishing from '../components/pages/Home/Home-Furnishing/Home-Furnishing.vue'
+import Infant from '../components/pages/Home/Infant/Infant.vue'
+import madam from '../components/pages/Home/madam/madam.vue'
+import Man from '../components/pages/Home/Man/Man.vue'
+
 
 //路由表, 设置路由切换的规则
 let routes = [
@@ -24,6 +30,36 @@ let routes = [
         path: '/detail',// 配置detail需要接收一个id参数
         name : 'detail',
         component: Detail
+    },
+    {
+        path: '/overseas',
+        name : 'overseas',
+        component: overseas
+    },
+    {
+        path: '/Beauty-make-up',
+        name : 'BeautyMakeUp',
+        component: BeautyMakeUp
+    },
+    {
+        path: '/Home-Furnishing',
+        name : 'HomeFurnishing',
+        component: HomeFurnishing
+    },
+    {
+        path: '/Infant',
+        name : 'Infant',
+        component: Infant
+    },
+    {
+        path: '/madam',
+        name : 'madam',
+        component: madam
+    },
+    {
+        path: '/Man',
+        name : 'Man',
+        component: Man
     },
     {
         path: '/list',// 配置list需要接收一个id参数
