@@ -44,7 +44,7 @@
         <span class="c-title">闪购</span>
         <div class="c-txt">
           <strong>{{message}}</strong>
-          <Countdown @time-end="message = '已结束'" :endTime='endTime'></Countdown>
+          <Countdown @time-end="message = '已结束'" v-if="message !== '已结束'" :endTime='endTime'></Countdown>
         </div>
       </div>
       <div 
@@ -85,16 +85,17 @@
             <li class="name-item" v-for = "(name, i) in infos.sizeMeasure.sizeTable[0]" :key = "i">{{name}}</li>
           </ul>
         </div>
-        <div class="size-table">
+        <div class="size-table clear">
           <div class="container clear">
             <ul class="size-item" v-for = "(items, i) in infos.sizeMeasure.sizeTable" :key = "i">
               <li 
-                v-if = "Number(items.product_size < 3) || items.product_size == 'UNI'" 
+                v-if = "items.product_size !== '品牌尺寸'" 
                 v-for = "(item, i) in items" 
                 :key = "i"
               >{{item}}</li>
             </ul>
           </div>
+          
         </div>
       </div>
     </div>
@@ -370,6 +371,9 @@ export default {
     background: #fff;
     margin-bottom: 0.2rem;
     font-size: 0.14rem;
+    >.container {
+      width: 100%;
+    }
     h3 {
       span {
         color: #999;
@@ -377,9 +381,6 @@ export default {
         font-weight: 400;
         margin-left: 0.05rem;
       }
-    }
-    .size-name, .size-item, ul{
-      float: left;
     }
     li {
       width: 0.92rem;
@@ -392,9 +393,23 @@ export default {
     li:nth-of-type(even) {
       background: #fff;
     }
-    .size-name {
-      box-shadow: 0.03rem 0 0.15333rem 0.02rem rgba(237, 237, 237, 0.8);
+    .size-name, .size-table{
+      float: left;
     }
+    .size-name {
+      width: 0.9rem;
+      box-shadow: 0.04rem 0 0.133333rem 0.04rem hsla(0,0%,93%,.8);
+      z-index: 3000;
+    }
+    .size-table {
+      overflow: auto;
+      box-shadow: 0 0 0.133333rem 0 hsla(0,0%,93%,.8);
+      >.container {
+        height: auto;
+        display: flex;
+      }
+    }
+
   }
   .description {
     h3 {

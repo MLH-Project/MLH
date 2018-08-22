@@ -10,7 +10,7 @@
 							</div>
 							<div class="home-neil-barrett">
 								<ul>
-									<li v-for = "(datas, i) in data.data[0].products">
+									<li v-for = "(datas, i) in data.data[0].products" :key = "i">
 										<a href=" javascript: ">
 											<div class="img">
 												<img :src="datas.picUrl" />

@@ -74,8 +74,9 @@ export default {
   },
   methods: {
     ListGetInfos() {
+      // console.log(this.$http)
       this.$http.get(
-          "http://www.mei.com/appapi/event/product/v3?pageIndex=1&categoryId=2041204190000005307&key=&sort=&timestamp=1533453339018&summary=6eaff4191091d74f11bbec39a11f49f5&platform_code=H5"
+          "http://www.mei.com/appapi/event/product/v3?pageIndex=1&categoryId="+this.$route.query.categoryId+"&key=&sort=&timestamp="+Date.now()+"&summary=6eaff4191091d74f11bbec39a11f49f5&platform_code=H5"
         ).then(res => {
           this.listInfos = res.data
           console.log(JSON.parse(JSON.stringify(this.listInfos)))
